@@ -1,0 +1,83 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Numpad",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#parameters"
+		},
+		{
+			"include": "#statements"
+		},
+		{
+			"include": "#whitespace"
+		},
+		{
+			"include": "#operators"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment.line",
+				"match": "\\#.*"
+			}]
+		},
+		"functions": {
+			"patterns": [{
+				"name": "entity.name.function",
+				"match": "\\*[1-9]\\d*\\.$"
+			},
+			{
+				"name": "entity.name.tag",
+				"match": "1\\.$"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric",
+				"match": "(?<!\\*)\\d+"
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"name": "variable",
+				"match": "\\*[1-9]\\d*(?=(\\..)?)"
+			},
+			{
+				"name": "entity.name.tag",
+				"match": "\\*0\\d*"
+			}]
+		},
+		"statements": {
+			"patterns": [{
+				"name": "keyword.control",
+				"match": "(?<=^\\.*)[+\\-]?/"
+			}]
+		},
+		"whitespace": {
+			"patterns": [{
+				"name": "comment",
+				"match": "^\\.+"
+			}]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.operator",
+				"match": "(?<!\\.)[+\\-\\*/\\.][+\\-]?"
+			}]
+		}
+	},
+	"scopeName": "source.npd"
+}
